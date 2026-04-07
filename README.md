@@ -29,6 +29,10 @@ Automated daily briefs covering:
 
 
 - New `codex-responses-api-proxy
+
+**Recent briefs:**
+- **2026-04-07** — AI Intelligence Brief — April 7, 2026
+
 <!-- LATEST_BRIEF_END -->
 
 ## 📊 Stats
@@ -36,8 +40,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 1 |
-| Streak | 0 days |
+| Total Briefs | 2 |
+| Streak | 1 day |
 | Since | April 2026 |
 <!-- STATS_END -->
 
