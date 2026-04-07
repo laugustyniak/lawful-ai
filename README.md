@@ -15,7 +15,20 @@ Automated daily briefs covering:
 ## 📰 Latest Brief
 
 <!-- LATEST_BRIEF_START -->
-*No briefs published yet. First brief coming soon!*
+### AI Intelligence Brief — April 7, 2026
+
+*Where law meets code meets caffeine*
+
+
+
+
+- Interactive Bedrock setup wizard for AWS authentication
+- Per-model and cache-hit breakdown added to `/cost`
+- 60% faster large-file write diffs — your monorepo rejoices
+- Fixed subagent spawning after tmux windows killed
+
+
+- New `codex-responses-api-proxy
 <!-- LATEST_BRIEF_END -->
 
 ## 📊 Stats
@@ -23,8 +36,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 0 |
-| Streak | 0 days |
+| Total Briefs | 1 |
+| Streak | 1 day |
 | Since | April 2026 |
 <!-- STATS_END -->
 
