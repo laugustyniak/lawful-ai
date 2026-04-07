@@ -15,7 +15,7 @@ Automated daily briefs covering:
 ## 📰 Latest Brief
 
 <!-- LATEST_BRIEF_START -->
-### AI Intelligence Brief — April 7, 2026
+### AI Intelligence Brief — April 8, 2026
 
 *Where law meets code meets caffeine*
 
@@ -37,7 +37,7 @@ Automated daily briefs covering:
 | Metric | Value |
 |---|---|
 | Total Briefs | 1 |
-| Streak | 1 day |
+| Streak | 0 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
