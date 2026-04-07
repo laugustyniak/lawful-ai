@@ -1,119 +1,107 @@
 ---
 date: YYYY-MM-DD
-title: "Lawful AI Daily Brief — [Day of Week], [Month] [Day]"
-tags: [ai-tools, legal-ai, papers, trending, tip]
-summary: "One-sentence hook summarizing the day's most interesting item."
+title: "Lawful AI Daily Brief — YYYY-MM-DD"
+tags: [ai, legal, daily-brief]
 ---
 
-# ⚖️ Lawful AI Daily Brief — [Day of Week], [Month] [Day]
+# ⚖️ Lawful AI — YYYY-MM-DD
 
-> *[One punchy sentence that makes someone want to read on.]*
+*Daily AI intelligence with a legal edge.*
 
 ---
 
-## 🔧 AI Tool Updates
+## 🔧 Tool Updates
 
 ### Claude Code
-- **[Feature/Fix name]** — [What changed and why it matters for daily use. Keep it to 1–2 sentences.]
-- **[Another item]** — [Description.]
 
-### OpenAI Codex / ChatGPT
-- **[Feature/Fix name]** — [What changed.]
+- **vX.Y.Z** — Brief description of the release highlight. [Release notes](https://github.com/anthropics/claude-code/releases)
 
-### Community Patterns
-- **[Pattern or workflow]** — [Who's using it and what problem it solves. Link to source if available.]
+### Codex
+
+- **vX.Y.Z** — Brief description of the release highlight. [Changelog](https://github.com/openai/codex/releases)
 
 ---
 
 ## 💡 Tip of the Day
 
-**[Short, actionable title — e.g., "Speed up RAG retrieval with hybrid search"]**
+**Topic: Descriptive tip title goes here**
 
-[1–2 sentence context for why this tip is useful right now.]
-
-```bash
-# Example shell command or config snippet
-some-command --flag value
-```
+One-sentence explanation of what the snippet demonstrates and why it is useful.
 
 ```python
-# Or a Python snippet
-def example():
-    pass
+# Example code snippet — replace with real working example
+from anthropic import Anthropic
+
+client = Anthropic()
+message = client.messages.create(
+    model="claude-opus-4-5",
+    max_tokens=1024,
+    messages=[{"role": "user", "content": "Summarize this contract clause: ..."}],
+)
+print(message.content[0].text)
 ```
 
-*Source: [link or "community"]*
+> Pro tip: add a brief callout here to make the snippet more actionable.
 
 ---
 
 ## ⚖️ Legal × AI Watch
 
-> *This is the section most AI newsletters skip. We don't.*
+*The section most engineers skip and most lawyers don't understand.*
 
-### [Regulation / Case / Development name]
-**Jurisdiction:** [EU / US / Global / ...]
-**Status:** [Draft / Adopted / In force / Pending / ...]
+### EU AI Act
 
-[2–3 sentences explaining what happened, what it means for AI practitioners, and any deadlines or action items. Be specific — vague regulatory summaries help no one.]
+- **Update title** — One-sentence summary of the development. [Source](https://example.com)
 
-**What to do:** [Concrete action item or "watch this space" + next milestone date.]
+### Copyright & IP
 
-### [Second item if applicable]
-**Jurisdiction:** [...]
-**Status:** [...]
+- **Case/ruling title** — One-sentence summary of significance. [Source](https://example.com)
 
-[Summary.]
+### Compliance
+
+- **Compliance note** — What practitioners need to know. [Source](https://example.com)
 
 ---
 
 ## 📚 Fresh Papers
 
-*arXiv picks — skimmed so you don't have to.*
+Papers worth reading from arXiv and elsewhere.
 
-### [Paper Title](https://arxiv.org/abs/XXXX.XXXXX)
-**Authors:** [Last names] et al. | **arXiv:** [XXXX.XXXXX]
+| Title | Topic | Link |
+|---|---|---|
+| *Paper Title Here* | Legal AI / RAG / Agents / LLMs | [arXiv:XXXX.XXXXX](https://arxiv.org/abs/XXXX.XXXXX) |
+| *Paper Title Here* | Contract analysis / NLP | [arXiv:XXXX.XXXXX](https://arxiv.org/abs/XXXX.XXXXX) |
 
-[2–3 sentence plain-English summary. What problem? What method? What result? Skip the math unless it's the point.]
+**TL;DR picks:**
 
-**Why it matters:** [One sentence on practical relevance — retrieval, agents, compliance, legal reasoning, etc.]
-
----
-
-### [Second Paper Title](https://arxiv.org/abs/XXXX.XXXXX)
-**Authors:** [Last names] et al. | **arXiv:** [XXXX.XXXXX]
-
-[Summary.]
-
-**Why it matters:** [Relevance.]
+- **Paper Title** — One sentence on why this matters for the Legal × AI space.
 
 ---
 
 ## 🔥 Trending Repos
 
-| Repo | Stars (24h) | What it does |
+What's hot on GitHub today.
+
+| Repo | Stars | What it does |
 |---|---|---|
-| [owner/repo](https://github.com/owner/repo) | ⭐ +NNN | [One-line description.] |
-| [owner/repo](https://github.com/owner/repo) | ⭐ +NNN | [One-line description.] |
-| [owner/repo](https://github.com/owner/repo) | ⭐ +NNN | [One-line description.] |
+| [org/repo-name](https://github.com/org/repo-name) | ⭐ N.Nk | One-line description |
+| [org/repo-name](https://github.com/org/repo-name) | ⭐ N.Nk | One-line description |
 
 ---
 
-## 🗣️ Community Spotlight
+## 🌍 Community Spotlight
 
-> *One post, thread, or discussion worth your time today.*
+> **@handle** on [Platform]:
+> "Interesting quote or observation worth surfacing from the community."
 
-**[Platform — e.g., "HN thread" / "Twitter/X" / "Reddit r/MachineLearning"]**
-
-[Quote or summary of the community discussion. What's the debate? What's the consensus? What's the surprising take?]
-
-*[Link to original post]*
+Why this matters: one sentence context.
 
 ---
 
 ## ☕ Standup One-Liner
 
-> *[One sentence that summarizes today's brief — safe to paste into Slack or say at standup. Make it memorable.]*
+> "One punchy sentence summarizing the most important AI × legal development of the day."
 
 ---
 
-*Lawful AI is published daily at 07:00 CET. Subscribe via [RSS](https://laugustyniak.github.io/lawful-ai/feed.xml) or [JSON Feed](https://laugustyniak.github.io/lawful-ai/feed.json). Built by [@laugustyniak](https://github.com/laugustyniak).*
+*Curated by [@laugustyniak](https://github.com/laugustyniak) — because someone has to read the regulations so you don't have to.*
