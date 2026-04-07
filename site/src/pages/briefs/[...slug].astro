@@ -1,0 +1,132 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TagPill from "../../components/TagPill.astro";
+import ShareButtons from "../../components/ShareButtons.astro";
+import { getAllBriefs, getBriefBySlug, formatDate } from "../../lib/briefs";
+import { getBase } from "../../lib/paths";
+import { marked } from "marked";
+
+/** Generate static paths for all briefs */
+export function getStaticPaths() {
+  const briefs = getAllBriefs();
+  return briefs.map((brief) => ({
+    params: { slug: brief.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const brief = getBriefBySlug(slug as string);
+const base = getBase();
+
+if (!brief) {
+  return Astro.redirect(base);
+}
+
+// Find previous and next briefs for navigation
+const allBriefs = getAllBriefs();
+const currentIndex = allBriefs.findIndex((b) => b.slug === brief.slug);
+const prevBrief = currentIndex < allBriefs.length - 1 ? allBriefs[currentIndex + 1] : null;
+const nextBrief = currentIndex > 0 ? allBriefs[currentIndex - 1] : null;
+
+const fullUrl = new URL(`${base}briefs/${brief.slug}/`, Astro.site).toString();
+
+// Render markdown to HTML
+const htmlContent = await marked.parse(brief.body);
+---
+
+<BaseLayout title={`${brief.title} — Lawful AI`} description={brief.excerpt}>
+  <article class="mx-auto max-w-3xl px-6 py-12">
+    <!-- Back link -->
+    <a
+      href={`${base}archive/`}
+      class="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors duration-200 mb-8"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      Back to Archive
+    </a>
+
+    <!-- Brief Header -->
+    <header class="mb-10">
+      <div class="flex items-center gap-3 mb-4">
+        <time class="text-sm font-mono text-[var(--color-text-muted)]">
+          {formatDate(brief.date)}
+        </time>
+        <span class="text-[var(--color-text-muted)]">&middot;</span>
+        <span class="text-sm text-[var(--color-text-muted)]">
+          {brief.readingTime} min read
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-bold leading-tight mb-5" style="font-family: 'Playfair Display', serif;">
+        {brief.title}
+      </h1>
+
+      <div class="flex flex-wrap items-center gap-4">
+        <div class="flex flex-wrap gap-2">
+          {brief.tags.map((tag) => <TagPill tag={tag} size="md" />)}
+        </div>
+
+        <div class="ml-auto">
+          <ShareButtons title={brief.title} url={fullUrl} />
+        </div>
+      </div>
+    </header>
+
+    <!-- Divider -->
+    <div class="border-t border-[var(--color-border)] mb-10"></div>
+
+    <!-- Brief Content -->
+    <div class="prose" set:html={htmlContent} />
+
+    <!-- Bottom Share -->
+    <div class="border-t border-[var(--color-border)] mt-12 pt-8">
+      <div class="flex items-center justify-between">
+        <p class="text-sm text-[var(--color-text-muted)]">Found this useful? Share it.</p>
+        <ShareButtons title={brief.title} url={fullUrl} />
+      </div>
+    </div>
+
+    <!-- Previous / Next Navigation -->
+    <nav class="border-t border-[var(--color-border)] mt-8 pt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {prevBrief ? (
+        <a
+          href={`${base}briefs/${prevBrief.slug}/`}
+          class="group flex flex-col p-5 rounded-xl border border-[var(--color-border)] transition-all duration-200 hover:border-[var(--color-border-hover)] hover:bg-[var(--color-surface)]"
+        >
+          <span class="text-xs uppercase tracking-widest text-[var(--color-text-muted)] mb-2 flex items-center gap-1">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Previous
+          </span>
+          <span class="text-sm font-medium text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors truncate">
+            {prevBrief.title}
+          </span>
+        </a>
+      ) : (
+        <div></div>
+      )}
+
+      {nextBrief ? (
+        <a
+          href={`${base}briefs/${nextBrief.slug}/`}
+          class="group flex flex-col items-end p-5 rounded-xl border border-[var(--color-border)] transition-all duration-200 hover:border-[var(--color-border-hover)] hover:bg-[var(--color-surface)] text-right"
+        >
+          <span class="text-xs uppercase tracking-widest text-[var(--color-text-muted)] mb-2 flex items-center gap-1">
+            Next
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+          <span class="text-sm font-medium text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors truncate">
+            {nextBrief.title}
+          </span>
+        </a>
+      ) : (
+        <div></div>
+      )}
+    </nav>
+  </article>
+</BaseLayout>

@@ -1,0 +1,116 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BriefCard from "../components/BriefCard.astro";
+import StatsBar from "../components/StatsBar.astro";
+import { getAllBriefs, getDaysSinceFirst } from "../lib/briefs";
+import { getBase } from "../lib/paths";
+
+const allBriefs = getAllBriefs();
+const latestBrief = allBriefs[0];
+const recentBriefs = allBriefs.slice(1, 6);
+const totalBriefs = allBriefs.length;
+const dayStreak = getDaysSinceFirst();
+const base = getBase();
+---
+
+<BaseLayout title="Lawful AI — Daily AI Intelligence with a Legal Edge">
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden">
+    <!-- Background gradient decoration -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[var(--color-accent)]/6 via-purple-500/3 to-transparent rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-3xl px-6 pt-20 pb-16">
+      <!-- Icon + Title -->
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--color-accent)]/20 to-purple-500/10 border border-[var(--color-accent)]/20 mb-6">
+          <span class="text-3xl" role="img" aria-label="scales of justice">&#x2696;&#xFE0F;</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl font-bold tracking-tight mb-4" style="font-family: 'Playfair Display', serif;">
+          <span class="bg-gradient-to-r from-[var(--color-text)] via-[var(--color-text)] to-[var(--color-accent)] bg-clip-text text-transparent">
+            Lawful AI
+          </span>
+        </h1>
+
+        <p class="text-lg sm:text-xl text-[var(--color-text-secondary)] max-w-lg mx-auto leading-relaxed">
+          Daily AI intelligence with a legal edge.
+        </p>
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        {latestBrief ? (
+          <a
+            href={`${base}briefs/${latestBrief.slug}/`}
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-accent)] text-white font-medium text-sm transition-all duration-200 hover:bg-[var(--color-accent-hover)] hover:shadow-[0_0_24px_rgba(59,130,246,0.3)]"
+          >
+            Read today's brief
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        ) : (
+          <span class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-surface)] text-[var(--color-text-muted)] font-medium text-sm border border-[var(--color-border)]">
+            No briefs yet
+          </span>
+        )}
+
+        <a
+          href={`${base}feed.xml`}
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[var(--color-border)] text-[var(--color-text-secondary)] font-medium text-sm transition-all duration-200 hover:border-[var(--color-gold)]/40 hover:text-[var(--color-gold)] hover:bg-[var(--color-gold)]/5"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
+          </svg>
+          Subscribe via RSS
+        </a>
+      </div>
+
+      <!-- Stats Bar -->
+      <StatsBar dayStreak={dayStreak} totalBriefs={totalBriefs} since="April 2026" />
+    </div>
+  </section>
+
+  <!-- Latest Brief -->
+  {latestBrief && (
+    <section class="mx-auto max-w-3xl px-6 pb-8">
+      <BriefCard brief={latestBrief} featured={true} />
+    </section>
+  )}
+
+  <!-- Recent Briefs -->
+  {recentBriefs.length > 0 && (
+    <section class="mx-auto max-w-3xl px-6 pb-16">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-lg font-semibold text-[var(--color-text)]" style="font-family: 'Playfair Display', serif;">
+          Recent Briefs
+        </h2>
+        <a
+          href={`${base}archive/`}
+          class="text-sm text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors duration-200 flex items-center gap-1"
+        >
+          View all
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        {recentBriefs.map((brief) => (
+          <BriefCard brief={brief} />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Search (Pagefind) -->
+  <section class="mx-auto max-w-3xl px-6 pb-16">
+    <h2 class="text-lg font-semibold text-[var(--color-text)] mb-6" style="font-family: 'Playfair Display', serif;">
+      Search Briefs
+    </h2>
+    <div id="pagefind-search" class="rounded-xl overflow-hidden"></div>
+  </section>
+</BaseLayout>

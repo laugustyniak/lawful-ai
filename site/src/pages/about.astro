@@ -1,0 +1,160 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="About — Lawful AI" description="Learn about Lawful AI, the daily AI intelligence brief with a legal edge.">
+  <div class="mx-auto max-w-3xl px-6 py-16">
+    <!-- Header -->
+    <div class="mb-12">
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">
+        About Lawful AI
+      </h1>
+      <div class="h-1 w-16 rounded-full bg-gradient-to-r from-[var(--color-accent)] to-purple-500"></div>
+    </div>
+
+    <!-- Mission -->
+    <section class="mb-12">
+      <div class="rounded-xl border border-[var(--color-gold)]/20 bg-gradient-to-br from-[var(--color-gold)]/5 to-transparent p-8">
+        <p class="text-lg text-[var(--color-text)] leading-relaxed" style="font-family: 'Playfair Display', serif;">
+          Lawful AI bridges the gap between AI engineering and legal compliance &mdash; delivering daily intelligence that helps you build smarter and stay compliant.
+        </p>
+      </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-6 text-[var(--color-text)]" style="font-family: 'Playfair Display', serif;">
+        How It Works
+      </h2>
+
+      <div class="space-y-4">
+        <div class="flex gap-4 p-5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] font-bold text-sm">
+            01
+          </div>
+          <div>
+            <h3 class="font-medium text-[var(--color-text)] mb-1">Automated Collection</h3>
+            <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+              AI agents continuously monitor tool changelogs, arXiv papers, GitHub trending repos, and legal regulatory updates across multiple jurisdictions.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 p-5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] font-bold text-sm">
+            02
+          </div>
+          <div>
+            <h3 class="font-medium text-[var(--color-text)] mb-1">Intelligent Synthesis</h3>
+            <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+              Automated pipelines and cron jobs filter signal from noise, cross-reference updates with legal implications, and draft concise briefs with actionable takeaways.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 p-5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] font-bold text-sm">
+            03
+          </div>
+          <div>
+            <h3 class="font-medium text-[var(--color-text)] mb-1">Human Review</h3>
+            <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+              Every brief undergoes human review before publication. No hallucinated legal advice, no unchecked claims. The AI collects and drafts; a human verifies and ships.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who it's for -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-6 text-[var(--color-text)]" style="font-family: 'Playfair Display', serif;">
+        Who It's For
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="p-5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] text-center">
+          <div class="text-2xl mb-3">&#x1F528;</div>
+          <h3 class="font-medium text-[var(--color-text)] mb-1 text-sm">Engineers</h3>
+          <p class="text-xs text-[var(--color-text-muted)] leading-relaxed">
+            Stay current on AI tools without reading 50 changelogs a week.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] text-center">
+          <div class="text-2xl mb-3">&#x1F3AF;</div>
+          <h3 class="font-medium text-[var(--color-text)] mb-1 text-sm">Team Leads</h3>
+          <p class="text-xs text-[var(--color-text-muted)] leading-relaxed">
+            Make informed decisions about AI adoption with compliance context.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] text-center">
+          <div class="text-2xl mb-3">&#x2696;&#xFE0F;</div>
+          <h3 class="font-medium text-[var(--color-text)] mb-1 text-sm">Legal-Tech Enthusiasts</h3>
+          <p class="text-xs text-[var(--color-text-muted)] leading-relaxed">
+            The intersection of law and code, decoded daily.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About the Author -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-6 text-[var(--color-text)]" style="font-family: 'Playfair Display', serif;">
+        About the Author
+      </h2>
+
+      <div class="flex items-start gap-5 p-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
+        <div class="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-[var(--color-accent)] to-purple-500 flex items-center justify-center text-white font-bold text-lg">
+          LA
+        </div>
+        <div>
+          <h3 class="font-medium text-[var(--color-text)] mb-1">Lukasz Augustyniak</h3>
+          <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-3">
+            AI engineer and researcher focused on the intersection of machine learning, natural language processing, and legal technology. Building tools that make AI compliance practical, not painful.
+          </p>
+          <div class="flex items-center gap-4">
+            <a
+              href="https://augustyniak.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors duration-200"
+            >
+              augustyniak.ai
+            </a>
+            <a
+              href="https://github.com/laugustyniak"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-200"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="text-center py-12 rounded-xl border border-[var(--color-border)] bg-gradient-to-br from-[var(--color-surface)] to-[rgba(59,130,246,0.03)]">
+      <h2 class="text-xl font-semibold mb-3 text-[var(--color-text)]" style="font-family: 'Playfair Display', serif;">
+        Stay Informed
+      </h2>
+      <p class="text-[var(--color-text-secondary)] mb-6 max-w-md mx-auto text-sm">
+        Subscribe to the RSS feed and never miss a brief. No spam, no tracking, just intelligence.
+      </p>
+      <a
+        href={`${base}feed.xml`}
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-accent)] text-white font-medium text-sm transition-all duration-200 hover:bg-[var(--color-accent-hover)] hover:shadow-[0_0_24px_rgba(59,130,246,0.3)]"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
+        </svg>
+        Subscribe via RSS
+      </a>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,78 @@
+---
+import TagPill from "./TagPill.astro";
+import { getBase } from "../lib/paths";
+import type { Brief } from "../lib/briefs";
+
+interface Props {
+  brief: Brief;
+  featured?: boolean;
+}
+
+const { brief, featured = false } = Astro.props;
+const base = getBase();
+
+const formattedDate = new Date(brief.date).toLocaleDateString("en-US", {
+  weekday: "short",
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+});
+---
+
+<a
+  href={`${base}briefs/${brief.slug}/`}
+  class:list={[
+    "group block rounded-xl border transition-all duration-300",
+    featured
+      ? "border-[var(--color-accent)]/30 bg-gradient-to-br from-[var(--color-surface)] to-[rgba(59,130,246,0.04)] p-8 hover:border-[var(--color-accent)]/60 hover:shadow-[0_0_40px_rgba(59,130,246,0.08)]"
+      : "border-[var(--color-border)] bg-[var(--color-surface)] p-6 hover:border-[var(--color-border-hover)] hover:bg-[var(--color-surface-hover)] hover:shadow-[0_0_30px_rgba(59,130,246,0.05)]",
+  ]}
+>
+  {featured && (
+    <div class="flex items-center gap-2 mb-4">
+      <span class="inline-block w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse"></span>
+      <span class="text-xs font-medium uppercase tracking-widest text-[var(--color-accent)]">
+        Latest Brief
+      </span>
+    </div>
+  )}
+
+  <!-- Date -->
+  <div class="flex items-center gap-3 mb-3">
+    <time class="text-sm text-[var(--color-text-muted)] font-mono">
+      {formattedDate}
+    </time>
+    <span class="text-sm text-[var(--color-text-muted)]">
+      &middot; {brief.readingTime} min read
+    </span>
+  </div>
+
+  <!-- Title -->
+  <h3
+    class:list={[
+      "font-semibold leading-tight mb-3 transition-colors duration-200 group-hover:text-[var(--color-accent)]",
+      featured ? "text-xl" : "text-lg",
+    ]}
+    style="font-family: 'Playfair Display', serif;"
+  >
+    {brief.title}
+  </h3>
+
+  <!-- Excerpt -->
+  <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4 line-clamp-2">
+    {brief.excerpt}
+  </p>
+
+  <!-- Tags -->
+  <div class="flex flex-wrap gap-2">
+    {brief.tags.map((tag) => <TagPill tag={tag} />)}
+  </div>
+
+  <!-- Read arrow (appears on hover) -->
+  <div class="flex items-center gap-1 mt-4 text-sm text-[var(--color-accent)] opacity-0 translate-x-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
+    <span>Read brief</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+    </svg>
+  </div>
+</a>

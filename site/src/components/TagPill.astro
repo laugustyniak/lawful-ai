@@ -1,0 +1,58 @@
+---
+interface Props {
+  tag: string;
+  size?: "sm" | "md";
+}
+
+const { tag, size = "sm" } = Astro.props;
+
+/**
+ * Color mapping for known tag categories.
+ * Falls back to a neutral gray for unknown tags.
+ */
+const tagColors: Record<string, { bg: string; text: string; border: string }> = {
+  "legal-ai": {
+    bg: "rgba(245, 158, 11, 0.12)",
+    text: "#fbbf24",
+    border: "rgba(245, 158, 11, 0.25)",
+  },
+  "claude-code": {
+    bg: "rgba(59, 130, 246, 0.12)",
+    text: "#60a5fa",
+    border: "rgba(59, 130, 246, 0.25)",
+  },
+  codex: {
+    bg: "rgba(16, 185, 129, 0.12)",
+    text: "#34d399",
+    border: "rgba(16, 185, 129, 0.25)",
+  },
+  arxiv: {
+    bg: "rgba(139, 92, 246, 0.12)",
+    text: "#a78bfa",
+    border: "rgba(139, 92, 246, 0.25)",
+  },
+  trending: {
+    bg: "rgba(249, 115, 22, 0.12)",
+    text: "#fb923c",
+    border: "rgba(249, 115, 22, 0.25)",
+  },
+};
+
+const defaultColor = {
+  bg: "rgba(107, 114, 128, 0.12)",
+  text: "#9ca3af",
+  border: "rgba(107, 114, 128, 0.25)",
+};
+
+const colors = tagColors[tag] || defaultColor;
+const sizeClasses = size === "sm"
+  ? "text-xs px-2.5 py-0.5"
+  : "text-sm px-3 py-1";
+---
+
+<span
+  class:list={["inline-flex items-center rounded-full font-medium tracking-wide transition-all duration-200", sizeClasses]}
+  style={`background: ${colors.bg}; color: ${colors.text}; border: 1px solid ${colors.border};`}
+>
+  {tag}
+</span>

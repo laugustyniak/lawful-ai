@@ -1,0 +1,149 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TagPill from "../components/TagPill.astro";
+import { getAllBriefs, getAllTags, getBriefsByMonth, formatShortDate } from "../lib/briefs";
+import { getBase } from "../lib/paths";
+
+const briefsByMonth = getBriefsByMonth();
+const allTags = getAllTags();
+const allBriefs = getAllBriefs();
+const base = getBase();
+---
+
+<BaseLayout title="Archive — Lawful AI" description="Browse all AI intelligence briefs.">
+  <div class="mx-auto max-w-3xl px-6 py-16">
+    <!-- Header -->
+    <div class="mb-10">
+      <h1 class="text-3xl sm:text-4xl font-bold mb-3" style="font-family: 'Playfair Display', serif;">
+        Archive
+      </h1>
+      <p class="text-[var(--color-text-secondary)]">
+        {allBriefs.length} brief{allBriefs.length !== 1 ? "s" : ""} and counting.
+      </p>
+    </div>
+
+    <!-- Tag Filter -->
+    <div class="mb-10">
+      <div class="flex flex-wrap gap-2" id="tag-filters">
+        <button
+          class="tag-filter-btn active inline-flex items-center text-xs px-3 py-1.5 rounded-full font-medium tracking-wide transition-all duration-200 border cursor-pointer"
+          data-tag="all"
+          style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; border-color: rgba(59, 130, 246, 0.25);"
+        >
+          All
+        </button>
+        {allTags.map((tag) => (
+          <button
+            class="tag-filter-btn inline-flex items-center text-xs px-3 py-1.5 rounded-full font-medium tracking-wide transition-all duration-200 border cursor-pointer"
+            data-tag={tag}
+            style="background: rgba(107, 114, 128, 0.08); color: #9ca3af; border-color: rgba(107, 114, 128, 0.2);"
+          >
+            {tag}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Briefs by Month -->
+    <div class="space-y-10" id="archive-list">
+      {briefsByMonth.map(([monthLabel, briefs]) => (
+        <div class="archive-month">
+          <h2 class="text-sm font-medium uppercase tracking-widest text-[var(--color-text-muted)] mb-4 pb-2 border-b border-[var(--color-border)]">
+            {monthLabel}
+          </h2>
+
+          <div class="space-y-1">
+            {briefs.map((brief) => (
+              <a
+                href={`${base}briefs/${brief.slug}/`}
+                class="archive-entry group flex items-start gap-4 px-4 py-3.5 -mx-4 rounded-xl transition-all duration-200 hover:bg-[var(--color-surface)]"
+                data-tags={brief.tags.join(",")}
+              >
+                <!-- Date -->
+                <time class="flex-shrink-0 w-24 text-sm font-mono text-[var(--color-text-muted)] pt-0.5">
+                  {formatShortDate(brief.date)}
+                </time>
+
+                <!-- Content -->
+                <div class="flex-1 min-w-0">
+                  <h3 class="text-[var(--color-text)] font-medium group-hover:text-[var(--color-accent)] transition-colors duration-200 truncate">
+                    {brief.title}
+                  </h3>
+
+                  <div class="flex flex-wrap gap-1.5 mt-2">
+                    {brief.tags.map((tag) => (
+                      <TagPill tag={tag} size="sm" />
+                    ))}
+                  </div>
+                </div>
+
+                <!-- Arrow -->
+                <svg class="w-4 h-4 text-[var(--color-text-muted)] mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {allBriefs.length === 0 && (
+      <div class="text-center py-20">
+        <p class="text-[var(--color-text-muted)] text-lg">No briefs published yet. Check back soon.</p>
+      </div>
+    )}
+  </div>
+</BaseLayout>
+
+<script>
+  /** Client-side tag filtering for the archive page. */
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".tag-filter-btn");
+  const entries = document.querySelectorAll<HTMLElement>(".archive-entry");
+  const months = document.querySelectorAll<HTMLElement>(".archive-month");
+
+  const activeStyle = {
+    background: "rgba(59, 130, 246, 0.12)",
+    color: "#60a5fa",
+    borderColor: "rgba(59, 130, 246, 0.25)",
+  };
+  const inactiveStyle = {
+    background: "rgba(107, 114, 128, 0.08)",
+    color: "#9ca3af",
+    borderColor: "rgba(107, 114, 128, 0.2)",
+  };
+
+  function applyStyle(btn: HTMLButtonElement, active: boolean) {
+    const s = active ? activeStyle : inactiveStyle;
+    btn.style.background = s.background;
+    btn.style.color = s.color;
+    btn.style.borderColor = s.borderColor;
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const tag = btn.dataset.tag;
+      if (!tag) return;
+
+      // Update button states
+      buttons.forEach((b) => applyStyle(b, false));
+      applyStyle(btn, true);
+
+      // Filter entries
+      entries.forEach((entry) => {
+        const entryTags = (entry.dataset.tags || "").split(",");
+        if (tag === "all" || entryTags.includes(tag)) {
+          entry.style.display = "";
+        } else {
+          entry.style.display = "none";
+        }
+      });
+
+      // Hide empty month groups
+      months.forEach((month) => {
+        const visibleEntries = month.querySelectorAll('.archive-entry:not([style*="display: none"])');
+        month.style.display = visibleEntries.length === 0 ? "none" : "";
+      });
+    });
+  });
+</script>

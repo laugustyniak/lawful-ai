@@ -1,0 +1,93 @@
+---
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { getBase } from "../lib/paths";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { title, description = "Daily AI intelligence with a legal edge.", ogImage } = Astro.props;
+const base = getBase();
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- RSS autodiscovery -->
+    <link rel="alternate" type="application/rss+xml" title="Lawful AI RSS Feed" href={`${base}feed.xml`} />
+
+    <!-- Favicon (scales of justice emoji as SVG data URI) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x2696;</text></svg>" />
+
+    <!-- Google Fonts: Inter, Playfair Display, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Pagefind CSS (will be available after build) -->
+    <link href={`${base}pagefind/pagefind-ui.css`} rel="stylesheet" />
+  </head>
+
+  <body class="min-h-screen flex flex-col">
+    <Nav />
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- Pagefind JS (will be available after build) -->
+    <script is:inline define:vars={{ base }}>
+      // Pagefind loads after build; gracefully skip if not present
+      window.addEventListener("DOMContentLoaded", async () => {
+        try {
+          const script = document.createElement("script");
+          script.src = base + "pagefind/pagefind-ui.js";
+          script.onload = () => {
+            const el = document.getElementById("pagefind-search");
+            if (el && window.PagefindUI) {
+              new window.PagefindUI({
+                element: "#pagefind-search",
+                showSubResults: true,
+                showImages: false,
+              });
+            }
+          };
+          document.head.appendChild(script);
+        } catch {
+          // Pagefind not available; search won't render
+        }
+      });
+    </script>
+  </body>
+</html>
