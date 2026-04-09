@@ -15,22 +15,13 @@ Automated daily briefs covering:
 ## 📰 Latest Brief
 
 <!-- LATEST_BRIEF_START -->
-### AI Intelligence Brief — April 8, 2026
+### Lawful AI Daily Brief — 2026-04-09
 
-*Where law meets code meets caffeine*
-
-
-
-
-- Interactive Bedrock setup wizard for AWS authentication
-- Per-model and cache-hit breakdown added to `/cost`
-- 60% faster large-file write diffs — your monorepo rejoices
-- Fixed subagent spawning after tmux windows killed
-
-
-- New `codex-responses-api-proxy
+- **Claude Code** is in “ship-now-sleep-later” mode: recent drops (`v2.1.94 → v2.1.97`) added focus view (`Ctrl+O`), cleaner Slack MCP output, and better Bedrock behavior. Translation: less UI noise, more signal. ⚡
+- **Codex CLI** keeps firing alpha builds (`0.119.0-alpha.*`) with thin notes. Great 
 
 **Recent briefs:**
+- **2026-04-08** — Lawful AI Daily Brief — 2026-04-08
 - **2026-04-07** — AI Intelligence Brief — April 7, 2026
 
 <!-- LATEST_BRIEF_END -->
@@ -40,8 +31,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 2 |
-| Streak | 1 day |
+| Total Briefs | 3 |
+| Streak | 3 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
