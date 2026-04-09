@@ -26,6 +26,8 @@ Automated daily briefs covering:
 **Recent briefs:**
 - **2026-04-08** — Lawful AI Daily Brief — 2026-04-08
 - **2026-04-07** — AI Intelligence Brief — April 7, 2026
+- **2026-04-06** — AI Intelligence Brief — April 6, 2026
+- **2026-04-05** — AI Intelligence Brief — April 5, 2026
 
 <!-- LATEST_BRIEF_END -->
 
@@ -34,8 +36,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 3 |
-| Streak | 3 days |
+| Total Briefs | 9 |
+| Streak | 9 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
