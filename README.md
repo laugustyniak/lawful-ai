@@ -17,8 +17,11 @@ Automated daily briefs covering:
 <!-- LATEST_BRIEF_START -->
 ### Lawful AI Daily Brief — 2026-04-09
 
-- **Claude Code** is in “ship-now-sleep-later” mode: recent drops (`v2.1.94 → v2.1.97`) added focus view (`Ctrl+O`), cleaner Slack MCP output, and better Bedrock behavior. Translation: less UI noise, more signal. ⚡
-- **Codex CLI** keeps firing alpha builds (`0.119.0-alpha.*`) with thin notes. Great 
+- **Claude Code sprinted again**: `v2.1.97/96/94` landed in quick succession.
+  - Focus view (`Ctrl+O`) + less UI flicker
+  - Better `/agents` visibility
+  - Bedrock auth got patched before anyone could start yelling at logs
+- **Codex CLI** is still in caffeinated alpha mode (`0.119.0-alpha.24/.25/.
 
 **Recent briefs:**
 - **2026-04-08** — Lawful AI Daily Brief — 2026-04-08
