@@ -15,19 +15,29 @@ Automated daily briefs covering:
 ## 📰 Latest Brief
 
 <!-- LATEST_BRIEF_START -->
-### Lawful AI Daily Brief — 2026-04-09
+### Lawful AI Daily Brief — 2026-04-10
 
-- **Claude Code sprinted again**: `v2.1.97/96/94` landed in quick succession.
-  - Focus view (`Ctrl+O`) + less UI flicker
-  - Better `/agents` visibility
-  - Bedrock auth got patched before anyone could start yelling at logs
-- **Codex CLI** is still in caffeinated alpha mode (`0.119.0-alpha.24/.25/.
+Use structured output gates to keep your agent deterministic under pressure:
+
+```yaml
+policy:
+  output_contract: markdown
+  max_sections: 6
+  skip_on_error: true
+  include_only_with_evidence: true
+```
+
+Tiny config, huge chaos reduction. Your future self says thanks. 😎
+
+
+
+**Compliance + regulation r
 
 **Recent briefs:**
+- **2026-04-09** — Lawful AI Daily Brief — 2026-04-09
 - **2026-04-08** — Lawful AI Daily Brief — 2026-04-08
 - **2026-04-07** — AI Intelligence Brief — April 7, 2026
 - **2026-04-06** — AI Intelligence Brief — April 6, 2026
-- **2026-04-05** — AI Intelligence Brief — April 5, 2026
 
 <!-- LATEST_BRIEF_END -->
 
@@ -36,8 +46,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 9 |
-| Streak | 9 days |
+| Total Briefs | 10 |
+| Streak | 10 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
