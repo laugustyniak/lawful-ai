@@ -15,29 +15,16 @@ Automated daily briefs covering:
 ## 📰 Latest Brief
 
 <!-- LATEST_BRIEF_START -->
-### Lawful AI Daily Brief — 2026-04-10
+### Lawful AI Daily Brief — 2026-04-11
 
-Use structured output gates to keep your agent deterministic under pressure:
-
-```yaml
-policy:
-  output_contract: markdown
-  max_sections: 6
-  skip_on_error: true
-  include_only_with_evidence: true
-```
-
-Tiny config, huge chaos reduction. Your future self says thanks. 😎
-
-
-
-**Compliance + regulation r
+- **Claude Code v2.1.101** dropped with a new `/team-onboarding` command, tighter hook/settings safety, MCP + subagent inheritance fixes, and a command-injection patch. Net effect: fewer “wait, why did it do that?” moments.
+- **Codex CLI 0.120.0** added Realtime V2 visibility for background progress
 
 **Recent briefs:**
+- **2026-04-10** — Lawful AI Daily Brief — 2026-04-10
 - **2026-04-09** — Lawful AI Daily Brief — 2026-04-09
 - **2026-04-08** — Lawful AI Daily Brief — 2026-04-08
 - **2026-04-07** — AI Intelligence Brief — April 7, 2026
-- **2026-04-06** — AI Intelligence Brief — April 6, 2026
 
 <!-- LATEST_BRIEF_END -->
 
@@ -46,8 +33,8 @@ Tiny config, huge chaos reduction. Your future self says thanks. 😎
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 10 |
-| Streak | 10 days |
+| Total Briefs | 11 |
+| Streak | 11 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
