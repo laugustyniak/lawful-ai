@@ -15,16 +15,17 @@ Automated daily briefs covering:
 ## 📰 Latest Brief
 
 <!-- LATEST_BRIEF_START -->
-### Lawful AI Daily Brief — 2026-04-11
+### Lawful AI Daily Brief — 2026-04-13
 
-- **Claude Code v2.1.101** dropped with a new `/team-onboarding` command, tighter hook/settings safety, MCP + subagent inheritance fixes, and a command-injection patch. Net effect: fewer “wait, why did it do that?” moments.
-- **Codex CLI 0.120.0** added Realtime V2 visibility for background progress
+- **Claude Code:** `v2.1.104` landed with a quiet changelog and fast cadence — treat this as a **stability pulse** and pin before broad rollout.
+- **Codex CLI:** fresh alpha train (`rust-v0.121.0-alpha.1/.2`) is moving fast; great for sandbox validation, less great for surprise-prod adventures.
+- **
 
 **Recent briefs:**
+- **2026-04-11** — Lawful AI Daily Brief — 2026-04-11
 - **2026-04-10** — Lawful AI Daily Brief — 2026-04-10
 - **2026-04-09** — Lawful AI Daily Brief — 2026-04-09
 - **2026-04-08** — Lawful AI Daily Brief — 2026-04-08
-- **2026-04-07** — AI Intelligence Brief — April 7, 2026
 
 <!-- LATEST_BRIEF_END -->
 
@@ -33,8 +34,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 11 |
-| Streak | 11 days |
+| Total Briefs | 12 |
+| Streak | 1 day |
 | Since | April 2026 |
 <!-- STATS_END -->
 
