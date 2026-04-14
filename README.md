@@ -15,17 +15,16 @@ Automated daily briefs covering:
 ## 📰 Latest Brief
 
 <!-- LATEST_BRIEF_START -->
-### Lawful AI Daily Brief — 2026-04-13
+### Lawful AI Daily Brief — 2026-04-14
 
-- **Claude Code:** `v2.1.104` landed with a quiet changelog and fast cadence — treat this as a **stability pulse** and pin before broad rollout.
-- **Codex CLI:** fresh alpha train (`rust-v0.121.0-alpha.1/.2`) is moving fast; great for sandbox validation, less great for surprise-prod adventures.
-- **
+- **Claude Code v2.1.105** dropped with some real quality-of-life muscle: explicit worktree entry, stronger pre-compact blocking, better `/doctor`, and cleaner web fetch noise filtering. Translation: less "why is this stuck?", more "already merged" ⚡
+- **Codex CLI alpha (`0.121.0-alpha.*`)** is iter
 
 **Recent briefs:**
+- **2026-04-13** — Lawful AI Daily Brief — 2026-04-13
 - **2026-04-11** — Lawful AI Daily Brief — 2026-04-11
 - **2026-04-10** — Lawful AI Daily Brief — 2026-04-10
 - **2026-04-09** — Lawful AI Daily Brief — 2026-04-09
-- **2026-04-08** — Lawful AI Daily Brief — 2026-04-08
 
 <!-- LATEST_BRIEF_END -->
 
@@ -34,8 +33,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 12 |
-| Streak | 1 day |
+| Total Briefs | 13 |
+| Streak | 2 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
