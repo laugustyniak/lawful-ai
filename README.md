@@ -15,16 +15,16 @@ Automated daily briefs covering:
 ## 📰 Latest Brief
 
 <!-- LATEST_BRIEF_START -->
-### Lawful AI Daily Brief — 2026-04-14
+### Lawful AI Daily Brief — 2026-04-15
 
-- **Claude Code v2.1.105** dropped with some real quality-of-life muscle: explicit worktree entry, stronger pre-compact blocking, better `/doctor`, and cleaner web fetch noise filtering. Translation: less "why is this stuck?", more "already merged" ⚡
-- **Codex CLI alpha (`0.121.0-alpha.*`)** is iter
+- **Claude Code v2.1.108** dropped quality-of-life bangers: `/recap`, better `/resume`, cleaner rate-limit diagnostics, and sharper model-switch warnings. Less “is this stuck?” panic, more “chef is cooking.” 🍳
+- **Claude v2.1.109/107** improved progress signaling during longer runs — tiny UX tweak,
 
 **Recent briefs:**
+- **2026-04-14** — Lawful AI Daily Brief — 2026-04-14
 - **2026-04-13** — Lawful AI Daily Brief — 2026-04-13
 - **2026-04-11** — Lawful AI Daily Brief — 2026-04-11
 - **2026-04-10** — Lawful AI Daily Brief — 2026-04-10
-- **2026-04-09** — Lawful AI Daily Brief — 2026-04-09
 
 <!-- LATEST_BRIEF_END -->
 
@@ -33,8 +33,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 13 |
-| Streak | 2 days |
+| Total Briefs | 14 |
+| Streak | 3 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
