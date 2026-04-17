@@ -15,16 +15,16 @@ Automated daily briefs covering:
 ## 📰 Latest Brief
 
 <!-- LATEST_BRIEF_START -->
-### Lawful AI Daily Brief — 2026-04-16
+### Lawful AI Daily Brief — 2026-04-17
 
-- **Claude Code v2.1.110** dropped a proper operator starter pack: `/tui fullscreen`, `/focus`, mobile push notifications, cleaner `/plugin` triage, and scheduled tasks that wake back up on `--resume`.
-- Hooks/MCP reliability got a polish pass: fewer permission-hook weirdos, fewer disconnect hangs, 
+- **Claude Code** rolled out goodies for power users: `/less-permission-prompts`, `/ultrareview`, and the new **xhigh** effort tier. Translation: fewer papercuts, more shipping.
+- **Codex CLI** keeps evolving from “just a CLI” toward agent platform plumbing (marketplace add-ons, better MCP namespaci
 
 **Recent briefs:**
+- **2026-04-16** — Lawful AI Daily Brief — 2026-04-16
 - **2026-04-15** — Lawful AI Daily Brief — 2026-04-15
 - **2026-04-14** — Lawful AI Daily Brief — 2026-04-14
 - **2026-04-13** — Lawful AI Daily Brief — 2026-04-13
-- **2026-04-11** — Lawful AI Daily Brief — 2026-04-11
 
 <!-- LATEST_BRIEF_END -->
 
@@ -33,8 +33,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 15 |
-| Streak | 4 days |
+| Total Briefs | 16 |
+| Streak | 5 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
