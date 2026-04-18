@@ -15,16 +15,19 @@ Automated daily briefs covering:
 ## 📰 Latest Brief
 
 <!-- LATEST_BRIEF_START -->
-### Lawful AI Daily Brief — 2026-04-17
+### Lawful AI Daily Brief — 2026-04-18
 
-- **Claude Code** rolled out goodies for power users: `/less-permission-prompts`, `/ultrareview`, and the new **xhigh** effort tier. Translation: fewer papercuts, more shipping.
-- **Codex CLI** keeps evolving from “just a CLI” toward agent platform plumbing (marketplace add-ons, better MCP namespaci
+- **Claude Code v2.1.114** fixed a permission-dialog crash in agent-teams flows.
+- **Claude Code v2.1.113** pushed a chunky hardening pack:
+  - native per-platform binary launch
+  - `sandbox.network.deniedDomains` for explicit network blocking
+  - stricter Bash policy matching (`sudo` wrappers, safe
 
 **Recent briefs:**
+- **2026-04-17** — Lawful AI Daily Brief — 2026-04-17
 - **2026-04-16** — Lawful AI Daily Brief — 2026-04-16
 - **2026-04-15** — Lawful AI Daily Brief — 2026-04-15
 - **2026-04-14** — Lawful AI Daily Brief — 2026-04-14
-- **2026-04-13** — Lawful AI Daily Brief — 2026-04-13
 
 <!-- LATEST_BRIEF_END -->
 
@@ -33,8 +36,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 16 |
-| Streak | 5 days |
+| Total Briefs | 17 |
+| Streak | 6 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
