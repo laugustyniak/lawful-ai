@@ -15,19 +15,16 @@ Automated daily briefs covering:
 ## 📰 Latest Brief
 
 <!-- LATEST_BRIEF_START -->
-### Lawful AI Daily Brief — 2026-04-18
+### Lawful AI Daily Brief — 2026-04-19
 
-- **Claude Code v2.1.114** fixed a permission-dialog crash in agent-teams flows.
-- **Claude Code v2.1.113** pushed a chunky hardening pack:
-  - native per-platform binary launch
-  - `sandbox.network.deniedDomains` for explicit network blocking
-  - stricter Bash policy matching (`sudo` wrappers, safe
+- **Claude Code (v2.1.113 / v2.1.114)** shipped stability + security polish: permission-dialog crash fix, safer Bash matching, better `/loop` wakeup control, and an MCP concurrent-call timeout fix.
+- **Codex CLI alpha train (`0.122.0-alpha.8/.9/.10`)** pushed practical upgrades: better MCP stdio wir
 
 **Recent briefs:**
+- **2026-04-18** — Lawful AI Daily Brief — 2026-04-18
 - **2026-04-17** — Lawful AI Daily Brief — 2026-04-17
 - **2026-04-16** — Lawful AI Daily Brief — 2026-04-16
 - **2026-04-15** — Lawful AI Daily Brief — 2026-04-15
-- **2026-04-14** — Lawful AI Daily Brief — 2026-04-14
 
 <!-- LATEST_BRIEF_END -->
 
@@ -36,8 +33,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 17 |
-| Streak | 6 days |
+| Total Briefs | 18 |
+| Streak | 7 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
