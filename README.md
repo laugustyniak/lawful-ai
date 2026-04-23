@@ -15,16 +15,16 @@ Automated daily briefs covering:
 ## 📰 Latest Brief
 
 <!-- LATEST_BRIEF_START -->
-### Lawful AI Daily Brief — 2026-04-19
+### Lawful AI Daily Brief — 2026-04-23
 
-- **Claude Code (v2.1.113 / v2.1.114)** shipped stability + security polish: permission-dialog crash fix, safer Bash matching, better `/loop` wakeup control, and an MCP concurrent-call timeout fix.
-- **Codex CLI alpha train (`0.122.0-alpha.8/.9/.10`)** pushed practical upgrades: better MCP stdio wir
+- **Claude Code** kept shipping at “espresso x2” speed: MCP tools can now be called directly from hooks (`type: "mcp_tool"`), `/usage` now combines cost+stats, and `/resume` got smarter.
+- **Codex CLI v0.123.0** added Amazon Bedrock provider support, better `/mcp verbose` diagnostics, cleaner realti
 
 **Recent briefs:**
+- **2026-04-22** — Lawful AI Daily Brief — 2026-04-22
+- **2026-04-19** — Lawful AI Daily Brief — 2026-04-19
 - **2026-04-18** — Lawful AI Daily Brief — 2026-04-18
 - **2026-04-17** — Lawful AI Daily Brief — 2026-04-17
-- **2026-04-16** — Lawful AI Daily Brief — 2026-04-16
-- **2026-04-15** — Lawful AI Daily Brief — 2026-04-15
 
 <!-- LATEST_BRIEF_END -->
 
@@ -33,8 +33,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 19 |
-| Streak | 0 days |
+| Total Briefs | 21 |
+| Streak | 2 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
