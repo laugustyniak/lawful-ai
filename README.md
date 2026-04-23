@@ -33,8 +33,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 18 |
-| Streak | 7 days |
+| Total Briefs | 19 |
+| Streak | 0 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
