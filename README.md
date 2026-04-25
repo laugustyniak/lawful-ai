@@ -15,16 +15,16 @@ Automated daily briefs covering:
 ## 📰 Latest Brief
 
 <!-- LATEST_BRIEF_START -->
-### Lawful AI Daily Brief — 2026-04-23
+### Lawful AI Daily Brief — 2026-04-24
 
-- **Claude Code** kept shipping at “espresso x2” speed: MCP tools can now be called directly from hooks (`type: "mcp_tool"`), `/usage` now combines cost+stats, and `/resume` got smarter.
-- **Codex CLI v0.123.0** added Amazon Bedrock provider support, better `/mcp verbose` diagnostics, cleaner realti
+- **Claude Code v2.1.119/118** tightened automation behavior: `--print` now respects tool allow/deny policies, `--agent` obeys permission mode, and hooks can call MCP tools directly.
+- **Codex CLI v0.124.0/0.123.0** stabilized hooks, improved MCP diagnostics (`/mcp verbose`), and fixed permission-st
 
 **Recent briefs:**
+- **2026-04-23** — Lawful AI Daily Brief — 2026-04-23
 - **2026-04-22** — Lawful AI Daily Brief — 2026-04-22
 - **2026-04-19** — Lawful AI Daily Brief — 2026-04-19
 - **2026-04-18** — Lawful AI Daily Brief — 2026-04-18
-- **2026-04-17** — Lawful AI Daily Brief — 2026-04-17
 
 <!-- LATEST_BRIEF_END -->
 
@@ -33,8 +33,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 21 |
-| Streak | 2 days |
+| Total Briefs | 22 |
+| Streak | 3 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
