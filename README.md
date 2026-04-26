@@ -15,16 +15,16 @@ Automated daily briefs covering:
 ## 📰 Latest Brief
 
 <!-- LATEST_BRIEF_START -->
-### Lawful AI Daily Brief — 2026-04-25
+### Lawful AI Daily Brief — 2026-04-26
 
-- **Claude Code v2.1.119/118** shipped sticky `/config`, direct MCP hook calls (`type: "mcp_tool"`), visual mode upgrades, and cleaner privacy boot controls.
-- **Codex CLI 0.125.0** brought stronger app-server plumbing (Unix sockets, better resume/fork flows, sticky envs, and cleaner permission-prof
+- **Claude Code:** no brand-new drop in the last 48h, but recent updates still hit hard — MCP tool hooks (`mcp_tool`), cleaner `/usage`, and better parallel MCP reconnects.
+- **Codex CLI:** `0.125.0` + `0.126.0-alpha` line brought richer app-server plumbing and `reasoning_tokens` in JSON output for 
 
 **Recent briefs:**
+- **2026-04-25** — Lawful AI Daily Brief — 2026-04-25
 - **2026-04-24** — Lawful AI Daily Brief — 2026-04-24
 - **2026-04-23** — Lawful AI Daily Brief — 2026-04-23
 - **2026-04-22** — Lawful AI Daily Brief — 2026-04-22
-- **2026-04-19** — Lawful AI Daily Brief — 2026-04-19
 
 <!-- LATEST_BRIEF_END -->
 
@@ -33,8 +33,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 23 |
-| Streak | 4 days |
+| Total Briefs | 24 |
+| Streak | 5 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
