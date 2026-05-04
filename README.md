@@ -15,16 +15,16 @@ Automated daily briefs covering:
 ## 📰 Latest Brief
 
 <!-- LATEST_BRIEF_START -->
-### Lawful AI Daily Brief — 2026-04-26
+### Lawful AI Daily Brief — 2026-05-04
 
-- **Claude Code:** no brand-new drop in the last 48h, but recent updates still hit hard — MCP tool hooks (`mcp_tool`), cleaner `/usage`, and better parallel MCP reconnects.
-- **Codex CLI:** `0.125.0` + `0.126.0-alpha` line brought richer app-server plumbing and `reasoning_tokens` in JSON output for 
+- **Codex CLI 0.128.0** keeps getting better: persistent `/goal`, `codex update`, stronger permission profiles, and cleaner plugin lifecycle.
+- **Claude Code v2.1.126** remains the practical winner for regulated workflows: project purge controls, better model discovery, and improved skill telemetry.
 
 **Recent briefs:**
-- **2026-04-25** — Lawful AI Daily Brief — 2026-04-25
-- **2026-04-24** — Lawful AI Daily Brief — 2026-04-24
-- **2026-04-23** — Lawful AI Daily Brief — 2026-04-23
-- **2026-04-22** — Lawful AI Daily Brief — 2026-04-22
+- **2026-05-03** — Lawful AI Daily Brief — 2026-05-03
+- **2026-05-02** — Lawful AI Daily Brief — 2026-05-02
+- **2026-05-01** — ⚖️🤖 Lawful AI Daily Brief — 2026-05-01
+- **2026-04-30** — Lawful AI Daily Brief — 2026-04-30
 
 <!-- LATEST_BRIEF_END -->
 
@@ -33,8 +33,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 24 |
-| Streak | 5 days |
+| Total Briefs | 32 |
+| Streak | 13 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
