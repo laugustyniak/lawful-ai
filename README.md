@@ -15,16 +15,16 @@ Automated daily briefs covering:
 ## 📰 Latest Brief
 
 <!-- LATEST_BRIEF_START -->
-### Lawful AI Daily Brief — 2026-05-05
+### Lawful AI Daily Brief — 2026-05-06
 
-- **Claude Code v2.1.128** rolled in with cleaner `/mcp` visibility (including zero-tool server detection), better reconnect signal/noise, and `.zip` plugin-dir support.
-- **Workflow sanity boost:** `EnterWorktree` now branches from local `HEAD`, and parallel read-only shell calls don’t all die when
+- **Claude Code v2.1.129** landed with `--plugin-url` support (ZIP from URL), plus useful env toggles like `CLAUDE_CODE_FORCE_SYNC_OUTPUT=1` and `CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1`.
+- **Codex** kept sprinting with `0.129.0-alpha.7/.8` and a lot of MCP hardening and config reliability work
 
 **Recent briefs:**
+- **2026-05-05** — Lawful AI Daily Brief — 2026-05-05
 - **2026-05-04** — Lawful AI Daily Brief — 2026-05-04
 - **2026-05-03** — Lawful AI Daily Brief — 2026-05-03
 - **2026-05-02** — Lawful AI Daily Brief — 2026-05-02
-- **2026-05-01** — ⚖️🤖 Lawful AI Daily Brief — 2026-05-01
 
 <!-- LATEST_BRIEF_END -->
 
@@ -33,8 +33,8 @@ Automated daily briefs covering:
 <!-- STATS_START -->
 | Metric | Value |
 |---|---|
-| Total Briefs | 33 |
-| Streak | 14 days |
+| Total Briefs | 34 |
+| Streak | 15 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
