@@ -34,7 +34,7 @@ Automated daily briefs covering:
 | Metric | Value |
 |---|---|
 | Total Briefs | 34 |
-| Streak | 15 days |
+| Streak | 0 days |
 | Since | April 2026 |
 <!-- STATS_END -->
 
