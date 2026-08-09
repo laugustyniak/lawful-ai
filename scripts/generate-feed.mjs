@@ -3,7 +3,10 @@
  * generate-feed.mjs
  *
  * Reads all briefs/**\/YYYY/MM/DD.md files, parses YAML frontmatter,
- * and writes feed.json (latest 30) and feed.xml (RSS 2.0) to the repo root.
+ * and writes feed.json (latest 30) to the repo root.
+ *
+ * RSS lives in the Astro site (site/src/pages/feed.xml.ts), which renders it
+ * during the build with routable item links. Do not reintroduce it here.
  *
  * Usage: node scripts/generate-feed.mjs
  */
@@ -77,37 +80,18 @@ function parseFrontmatter(raw) {
 }
 
 /**
- * Derives a URL slug from the file path relative to briefs/.
- * e.g. briefs/2026/04/03.md -> /2026/04/03
+ * Derives a site URL path from the file path relative to briefs/.
+ * e.g. briefs/2026/04/03.md -> /briefs/2026/04/03/
+ *
+ * Must stay in sync with the Astro route (site/src/pages/briefs/[...slug].astro)
+ * and with how site/src/pages/feed.xml.ts builds item links — trailing slash
+ * included — otherwise every entry in feed.json points at a 404.
  */
 function fileToUrlPath(filePath) {
   const rel = path.relative(BRIEFS_DIR, filePath);
   // Remove .md extension and convert OS separators to forward slashes
-  return '/' + rel.replace(/\\/g, '/').replace(/\.md$/, '');
-}
-
-/**
- * Escapes characters that are special in XML.
- * @param {string} str
- */
-function escapeXml(str) {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;');
-}
-
-/**
- * Formats a date string or Date object as RFC 822 (RSS pub date).
- * @param {string | Date} d
- */
-function toRfc822(d) {
-  const date = d instanceof Date ? d : new Date(d);
-  // Fallback for invalid dates
-  if (isNaN(date.getTime())) return new Date().toUTCString();
-  return date.toUTCString();
+  const slug = rel.replace(/\\/g, '/').replace(/\.md$/, '');
+  return `/briefs/${slug}/`;
 }
 
 // --- Main ---
@@ -138,8 +122,6 @@ items.sort((a, b) => {
 
 const latest = items.slice(0, MAX_ITEMS);
 
-// --- Write feed.json ---
-
 const feedJson = {
   title: FEED_TITLE,
   description: FEED_DESCRIPTION,
@@ -156,35 +138,3 @@ const feedJson = {
 
 fs.writeFileSync(path.join(ROOT, 'feed.json'), JSON.stringify(feedJson, null, 2) + '\n', 'utf8');
 console.log(`feed.json written (${latest.length} items)`);
-
-// --- Write feed.xml (RSS 2.0) ---
-
-const rssItems = latest
-  .map(
-    (item) => `    <item>
-      <title>${escapeXml(item.title)}</title>
-      <link>${escapeXml(item.url)}</link>
-      <guid isPermaLink="true">${escapeXml(item.url)}</guid>
-      <pubDate>${toRfc822(item.date)}</pubDate>
-      <description>${escapeXml(item.summary)}</description>
-      ${item.tags.map((t) => `<category>${escapeXml(t)}</category>`).join('\n      ')}
-    </item>`,
-  )
-  .join('\n');
-
-const rssXml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>${escapeXml(FEED_TITLE)}</title>
-    <link>${escapeXml(SITE_URL)}</link>
-    <description>${escapeXml(FEED_DESCRIPTION)}</description>
-    <language>en-us</language>
-    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <atom:link href="${escapeXml(SITE_URL + '/feed.xml')}" rel="self" type="application/rss+xml"/>
-${rssItems}
-  </channel>
-</rss>
-`;
-
-fs.writeFileSync(path.join(ROOT, 'feed.xml'), rssXml, 'utf8');
-console.log(`feed.xml written (${latest.length} items)`);
