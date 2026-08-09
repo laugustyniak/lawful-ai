@@ -1,52 +1,85 @@
 name: Deploy Site
 
 on:
+  pull_request:
+    paths: &site_paths
+      - "briefs/**"
+      - "site/**"
+      - "scripts/generate-feed.mjs"
+      - ".github/workflows/deploy-site.yml"
   push:
     branches: [main]
-    paths: ['briefs/**', 'site/**']
+    paths: *site_paths
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    name: Build Astro site
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Set up Node with npm cache
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
           node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Configure Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
+
       - name: Generate feeds
         run: node scripts/generate-feed.mjs
-      - name: Install site deps
+
+      - name: Install site dependencies
         working-directory: site
-        run: npm install
+        run: npm ci
+
       - name: Build site
         working-directory: site
         run: npm run build
-      - name: Copy feeds to dist
+
+      # Astro emits dist/feed.xml itself (src/pages/feed.xml.ts) with correct
+      # /briefs/<date>/ item links; only feed.json has no Astro equivalent.
+      - name: Copy JSON feed into build output
+        run: cp -f feed.json site/dist/feed.json
+
+      - name: Validate build output
         run: |
-          cp -f feed.json site/dist/feed.json 2>/dev/null || true
-          cp -f feed.xml site/dist/feed.xml 2>/dev/null || true
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+          test -f site/dist/index.html
+          test -f site/dist/feed.json
+          test -f site/dist/feed.xml
+          test -d site/dist/pagefind
+
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
         with:
           path: site/dist
 
   deploy:
+    name: Deploy to GitHub Pages
     needs: build
-    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy Pages artifact
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5
