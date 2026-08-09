@@ -4,3 +4,7 @@ site/dist/
 site/node_modules/
 site/.astro/
 *.log
+
+# Build output: scripts/generate-feed.mjs regenerates this during the Pages
+# build and deploy-site.yml copies it into site/dist. Never commit it.
+/feed.json
